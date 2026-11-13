@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import pandas as pd
 import plotly.express as px
 import streamlit as st
@@ -13,7 +15,8 @@ def load_data(path: str) -> pd.DataFrame:
     return df
 
 
-df = load_data("01_ventas_mensuales.csv")
+DATA_PATH = Path(__file__).parent / "01_ventas_mensuales.csv"
+df = load_data(str(DATA_PATH))
 
 st.title("📈 Dashboard de ventas y publicidad")
 st.caption("Cifras en millones")
